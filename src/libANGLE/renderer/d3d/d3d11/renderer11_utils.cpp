@@ -2221,7 +2221,8 @@ angle::WorkaroundsD3D GenerateWorkarounds(const Renderer11DeviceCaps &deviceCaps
             workarounds.callClearTwice    = capsVersion < IntelDriverVersion(4771);
             workarounds.emulateIsnanFloat = capsVersion < IntelDriverVersion(4542);
         }
-        else if (IsBroadwell(adapterDesc.DeviceId) || IsHaswell(adapterDesc.DeviceId))
+        else if (IsBroadwell(adapterDesc.DeviceId) || IsHaswell(adapterDesc.DeviceId) ||
+                 IsIvyBridge(adapterDesc.DeviceId))
         {
             workarounds.rewriteUnaryMinusOperator = capsVersion < IntelDriverVersion(4624);
         }
